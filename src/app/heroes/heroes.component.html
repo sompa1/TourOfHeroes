@@ -1,7 +1,16 @@
-<h2>{{hero.name | uppercase}} Details</h2> <!--activates the built-in UppercasePipe-->
+<h2>My Heroes</h2>
+<ul class="heroes"> <!--unordered list-> (modellt) tömböt hozzárendeljük-->
+    <li *ngFor="let hero of heroes">
+        <span class="badge">{{hero.id}}</span> {{hero.name}} <!--hero: aktuális objektum minden iterációnál-->
+    </li>
+</ul>
+
+<!--
+<h2>{{hero.name | uppercase}} Details</h2>
 <div><span>id: </span>{{hero.id}}</div>
 <div>
     <label>name:
         <input [(ngModel)]="hero.name" placeholder="name"/>
     </label>
 </div>
+-->

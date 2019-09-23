@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Hero} from '../hero';
+import {HEROES} from '../mock-heroes'; /*heroes konstans tömb használata */
 
 @Component({
   selector: 'app-heroes',
@@ -15,10 +16,14 @@ import {Hero} from '../hero';
  */
 export class HeroesComponent implements OnInit {
 
+  /*
   hero: Hero = {
     id: 1,
     name: 'Windstorm'
   };
+  */
+
+  heroes = HEROES; /* heroes tömb property */
 
   constructor() { }
 
