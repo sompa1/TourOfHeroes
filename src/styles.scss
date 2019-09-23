@@ -1,11 +1,11 @@
-/* Application-wide Styles */
+/* Az egész appra érvényes stylesheet */
 h1 {
-    color: rgb(163, 0, 155);
-    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(23, 26, 201);
+    font-family: Arial, Helvetica, sans-serif; /*több: az elsővel kezdi, ha nem támogatja a böngésző, akkor veszi a következőt.*/
     font-size: 250%;
   }
   h2, h3 {
-    color: rgb(128, 15, 94);
+    color: rgb(1, 9, 80);
     font-family: Arial, Helvetica, sans-serif;
     font-weight: lighter;
   }
@@ -13,10 +13,10 @@ h1 {
     margin: 2em;
   }
   body, input[type="text"], button {
-    color: rgb(32, 0, 25);
+    color: rgb(1, 2, 24);
     font-family: Cambria, Georgia;
   }
-  /* everywhere else */
+  /* mindenhol máshol */
   * {
     font-family: Arial, Helvetica, sans-serif;
   }
