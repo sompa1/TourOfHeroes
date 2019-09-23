@@ -1,0 +1,13 @@
+<!--az ngif kiveszi a details részt, ha nincs selectedhero, igy nincs kötés, nem lesz hiba-->
+<div *ngIf="hero"> <!--wrap the hero detail html in a div, add angular directive-->
+    <!--enélkül a selectedhero undifined lenne amikor elindul az oldal-->
+        <h2>{{hero.name | uppercase}} Details</h2>
+        <div><span>id: </span>{{hero.id}}</div>
+        <div>
+            <label>name:
+            <input [(ngModel)]="hero.name" placeholder="name"/>
+            </label>
+        </div>
+          
+    </div>
+    

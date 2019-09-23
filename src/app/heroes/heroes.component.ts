@@ -15,6 +15,9 @@ import {HEROES} from '../mock-heroes'; /*heroes konstans tömb használata */
  * styleUrls— the location of the component's private CSS styles.
  */
 export class HeroesComponent implements OnInit {
+  /*
+  present the list of heroes
+  */
 
   heroes = HEROES; /* heroes tömb property */
 
