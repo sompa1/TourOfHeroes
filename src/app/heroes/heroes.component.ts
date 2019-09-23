@@ -16,17 +16,17 @@ import {HEROES} from '../mock-heroes'; /*heroes konstans tömb használata */
  */
 export class HeroesComponent implements OnInit {
 
-  /*
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };
-  */
-
   heroes = HEROES; /* heroes tömb property */
+
+  selectedHero: Hero;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  /*assigns the clicked hero from the template to the component's selectedHero*/
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
   }
 }
