@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Hero} from '../hero';
-import {HEROES} from '../mock-heroes'; /*heroes konstans tömb használata */
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-heroes',
@@ -19,17 +19,28 @@ export class HeroesComponent implements OnInit {
   present the list of heroes
   */
 
-  heroes = HEROES; /* heroes tömb property */
+  heroes: Hero[]; /* heroes tömb property */
 
   selectedHero: Hero;
 
-  constructor() { }
+  constructor(private heroService: HeroService) { }
+  /* defines a private heroService property and identifies it as a HeroService injection site. */
+  /* When Angular creates a HeroesComponent, the Dependency Injection system sets
+   the heroService parameter to the singleton instance of HeroService.
+  */
 
   ngOnInit() {
+    this.getHeroes();
   }
 
   /*assigns the clicked hero from the template to the component's selectedHero*/
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+  }
+
+  getHeroes(): void {
+    this.heroService.getHeroes()
+    .subscribe(emittedheroes => this.heroes = emittedheroes);
+    /* asynchronous: getHeroes() cannot return immediately with hero data, and the browser will not block while the service waits.*/
   }
 }
