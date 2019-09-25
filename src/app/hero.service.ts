@@ -15,11 +15,30 @@ export class HeroService {
 
   private heroesUrl = 'api/heroes';  // URL to web api
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
   /* :base/:collectionName with the address of the heroes resource on the server.
   Here base is the resource to which requests are made, and collectionName is the heroes data object in the in-memory-data-service.ts. */
 
-  constructor(private http: HttpClient, private messageService: MessageService) { } 
+  constructor(private http: HttpClient, private messageService: MessageService) { }
   /* Should be public - angular only binds to public comp properties*/
+
+  /** PUT: update the hero on the server */
+  updateHero(hero: Hero): Observable<any> {
+  return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
+    tap(_ => this.log(`updated hero id=${hero.id}`)),
+    catchError(this.handleError<any>('updateHero'))
+  );
+}
+
+/** POST: add a new hero to the server */
+addHero(hero: Hero): Observable<Hero> {
+  return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
+    tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
+    catchError(this.handleError<Hero>('addHero'))
+  );
+}
 
   getHeroes(): Observable<Hero[]> {
     /*TODO:send the message _after_ fetching the heroes*/

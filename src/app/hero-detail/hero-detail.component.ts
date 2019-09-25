@@ -43,4 +43,9 @@ goBack(): void {
   this.location.back();
 }
 
+save(): void {
+  this.heroService.updateHero(this.hero)
+    .subscribe(() => this.goBack()); // navigates back to the previous view.
+}
+
 }

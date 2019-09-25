@@ -34,6 +34,15 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.heroService.addHero({ name } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      });
+  }
+
   /*assigns the clicked hero from the template to the component's selectedHero*/
   /* onSelect(hero: Hero): void {
     this.selectedHero = hero;
