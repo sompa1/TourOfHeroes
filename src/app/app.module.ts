@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component'; /*magától deklarálta, amikor generáltuk a komponenst*/
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -14,7 +15,8 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     HeroesComponent,
     HeroDetailComponent,
-    MessagesComponent /*ide is belekerült*/
+    MessagesComponent,
+    DashboardComponent /*ide belekerülnek automatikusan a komponensek*/
   ],
   /*
   list of extrernal modules that the app needs

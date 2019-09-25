@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import {Hero} from '../hero';
 import { HeroService } from '../hero.service';
 
@@ -7,7 +8,7 @@ import { HeroService } from '../hero.service';
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.scss']
 })
-/**
+/*
  * @Component is a decorator function
  * that specifies the Angular metadata for the component.
  * selector— the component's CSS element selector
@@ -21,7 +22,7 @@ export class HeroesComponent implements OnInit {
 
   heroes: Hero[]; /* heroes tömb property */
 
-  selectedHero: Hero;
+  // selectedHero: Hero; nem kell
 
   constructor(private heroService: HeroService) { }
   /* defines a private heroService property and identifies it as a HeroService injection site. */
@@ -34,9 +35,10 @@ export class HeroesComponent implements OnInit {
   }
 
   /*assigns the clicked hero from the template to the component's selectedHero*/
-  onSelect(hero: Hero): void {
+  /* onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
+  */
 
   getHeroes(): void {
     this.heroService.getHeroes()
