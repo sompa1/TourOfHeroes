@@ -36,11 +36,18 @@ export class HeroesComponent implements OnInit {
 
   add(name: string): void {
     name = name.trim();
-    if (!name) { return; }
+    if (!name) { return; } // ha üres a string, akkor ne csinálj semmit
     this.heroService.addHero({ name } as Hero)
       .subscribe(hero => {
         this.heroes.push(hero);
       });
+  }
+
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroService.deleteHero(hero).subscribe(); // itt nem csinál semmit a komponens azzal az Observable-lel,
+    // amivel a subscribe visszatér, de kell mindenképpen a subscribe, mivel
+    // As a rule, an Observable does nothing until something subscribes.
   }
 
   /*assigns the clicked hero from the template to the component's selectedHero*/

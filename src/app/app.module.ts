@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent /*ide belekerülnek automatikusan a komponensek*/
+    DashboardComponent,
+    HeroSearchComponent /*ide belekerülnek automatikusan a komponensek*/
   ],
   /*
   list of extrernal modules that the app needs
